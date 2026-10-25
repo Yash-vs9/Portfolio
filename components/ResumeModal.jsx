@@ -7,7 +7,6 @@ import {
   Copy,
   Check,
   X,
-  ExternalLink,
   Download,
   FileText,
   Mail,
@@ -73,7 +72,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
     try {
       await navigator.clipboard.writeText(plainTextResume);
       setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
+      setTimeout(() => setCopied(false), 2000);
     } catch {
       // fallback
     }
@@ -92,271 +91,198 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 lg:p-10">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
       {/* backdrop */}
       <div
-        className="fixed inset-0 bg-void/80 backdrop-blur-md transition-opacity"
+        className="fixed inset-0 bg-black/75 backdrop-blur-sm"
         onClick={close}
       />
 
       {/* modal box */}
-      <div className="relative z-10 flex h-full max-h-[92vh] w-full max-w-4xl flex-col rounded-2xl border border-white/15 bg-void-soft shadow-2xl overflow-hidden">
-        {/* header toolbar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 bg-void/90 px-6 py-4">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-lime/10 text-lime border border-lime/20">
-              <FileText className="h-5 w-5" />
-            </div>
-            <div>
-              <h2 className="text-base font-bold text-bone">
-                Yash Vardhan Shukla — Resume / CV
-              </h2>
-              <p className="text-xs font-mono text-bone-dim">
-                ATS-Optimized • Updated 2026
-              </p>
-            </div>
+      <div className="relative z-10 flex h-full max-h-[90vh] w-full max-w-3xl flex-col rounded-xl border border-zinc-800 bg-zinc-950 shadow-2xl overflow-hidden">
+        {/* toolbar */}
+        <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-5 py-3">
+          <div className="flex items-center gap-2">
+            <FileText className="h-4 w-4 text-zinc-400" />
+            <span className="text-xs font-semibold text-zinc-200">
+              Yash Vardhan Shukla — Resume
+            </span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               onClick={handlePrint}
-              className="flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-bone hover:border-lime hover:bg-lime/10 hover:text-lime transition-colors"
+              className="flex items-center gap-1.5 rounded border border-zinc-700 bg-zinc-800 px-2.5 py-1 text-xs text-zinc-200 hover:bg-zinc-700 hover:text-white transition-colors"
               title="Print or Save as PDF"
             >
-              <Printer className="h-4 w-4" />
+              <Printer className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Print / PDF</span>
             </button>
             <button
               onClick={handleCopyText}
-              className="flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-bone hover:border-lime hover:bg-lime/10 hover:text-lime transition-colors"
-              title="Copy plain text for job applications"
+              className="flex items-center gap-1.5 rounded border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-300 hover:border-zinc-700 hover:text-white transition-colors"
             >
               {copied ? (
                 <>
-                  <Check className="h-4 w-4 text-lime" />
-                  <span className="text-lime">Copied!</span>
+                  <Check className="h-3.5 w-3.5 text-emerald-400" />
+                  <span className="text-emerald-400">Copied</span>
                 </>
               ) : (
                 <>
-                  <Copy className="h-4 w-4" />
+                  <Copy className="h-3.5 w-3.5" />
                   <span className="hidden sm:inline">Copy Text</span>
                 </>
               )}
             </button>
             <button
               onClick={handleDownloadTxt}
-              className="flex items-center gap-2 rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-xs font-mono uppercase tracking-wider text-bone hover:border-lime hover:bg-lime/10 hover:text-lime transition-colors"
-              title="Download text resume"
+              className="flex items-center gap-1.5 rounded border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-300 hover:border-zinc-700 hover:text-white transition-colors"
             >
-              <Download className="h-4 w-4" />
+              <Download className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">TXT</span>
             </button>
             <button
               onClick={close}
-              className="ml-2 flex h-8 w-8 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-bone-dim hover:border-white/30 hover:text-bone transition-colors"
-              aria-label="Close modal"
+              className="ml-2 flex h-7 w-7 items-center justify-center rounded border border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-zinc-100 transition-colors"
+              aria-label="Close"
             >
-              <X className="h-4 w-4" />
+              <X className="h-3.5 w-3.5" />
             </button>
           </div>
         </div>
 
-        {/* printable content view */}
-        <div className="flex-1 overflow-y-auto p-6 sm:p-10 font-sans text-bone bg-[#0d0d10] resume-print-area">
-          {/* Resume Header */}
-          <div className="border-b border-white/10 pb-6 text-center sm:text-left sm:flex sm:items-start sm:justify-between">
-            <div>
-              <h1 className="text-3xl font-extrabold tracking-tight text-bone sm:text-4xl">
-                {profile.name}
-              </h1>
-              <p className="mt-1 text-base font-semibold text-lime">
-                {profile.role}
-              </p>
-              <p className="mt-1 text-xs text-bone-dim">
-                {profile.education.degree} • {profile.education.school}
-              </p>
-            </div>
-            <div className="mt-4 flex flex-col gap-1 text-xs font-mono text-bone-dim sm:mt-0 sm:text-right">
-              <a
-                href={profile.links.email}
-                className="hover:text-lime transition-colors flex items-center gap-1.5 sm:justify-end"
-              >
+        {/* resume body */}
+        <div className="flex-1 overflow-y-auto p-6 sm:p-8 text-zinc-200 resume-print-area space-y-6 text-xs sm:text-[13px]">
+          {/* Header */}
+          <div className="border-b border-zinc-800 pb-4">
+            <h1 className="text-xl font-bold tracking-tight text-white">
+              {profile.name}
+            </h1>
+            <p className="text-xs text-zinc-400 mt-0.5">
+              {profile.role} • {profile.education.school}
+            </p>
+            <div className="mt-2 flex flex-wrap gap-4 text-xs font-mono text-zinc-400">
+              <span className="flex items-center gap-1">
                 <Mail className="h-3 w-3" /> {profile.links.rawEmail}
+              </span>
+              <a
+                href={profile.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-1 hover:text-zinc-200"
+              >
+                <GithubIcon className="h-3 w-3" /> github.com/{profile.links.githubUser}
               </a>
               <a
                 href={profile.links.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-lime transition-colors flex items-center gap-1.5 sm:justify-end"
+                className="flex items-center gap-1 hover:text-zinc-200"
               >
                 <LinkedinIcon className="h-3 w-3" /> {profile.links.linkedinUser}
-              </a>
-              <a
-                href={profile.links.github}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-lime transition-colors flex items-center gap-1.5 sm:justify-end"
-              >
-                <GithubIcon className="h-3 w-3" /> github.com/{profile.links.githubUser}
               </a>
             </div>
           </div>
 
           {/* Education */}
-          <div className="mt-6">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-lime border-b border-white/10 pb-1.5 mb-3">
+          <div>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono border-b border-zinc-800 pb-1 mb-2">
               Education
-            </h3>
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-sm">
-              <div>
-                <span className="font-bold text-bone">
-                  {profile.education.school}
-                </span>
-                <span className="text-bone-dim"> — {profile.education.degree}</span>
-              </div>
-              <span className="font-mono text-xs text-bone-dim">
-                2022 – 2026 (Expected)
+            </h2>
+            <div className="flex justify-between items-baseline">
+              <span className="font-semibold text-zinc-200">
+                {profile.education.school}
+              </span>
+              <span className="font-mono text-xs text-zinc-400">
+                2022 – 2026
               </span>
             </div>
+            <p className="text-xs text-zinc-400">
+              {profile.education.degree}
+            </p>
           </div>
 
           {/* Technical Skills */}
-          <div className="mt-6">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-lime border-b border-white/10 pb-1.5 mb-3">
+          <div>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono border-b border-zinc-800 pb-1 mb-2">
               Technical Skills
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2 text-xs">
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-1.5 text-xs">
               {skills.map((cat) => (
-                <div key={cat.label} className="leading-relaxed">
-                  <span className="font-bold text-bone">{cat.label}: </span>
-                  <span className="text-bone-dim">{cat.items.join(", ")}</span>
+                <div key={cat.label}>
+                  <span className="font-semibold text-zinc-300">{cat.label}: </span>
+                  <span className="text-zinc-400">{cat.items.join(", ")}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Experience */}
-          <div className="mt-6">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-lime border-b border-white/10 pb-1.5 mb-4">
-              Professional Experience
-            </h3>
-            <div className="space-y-6">
+          <div>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono border-b border-zinc-800 pb-1 mb-3">
+              Experience
+            </h2>
+            <div className="space-y-4">
               {experience.map((job) => (
-                <div key={job.company}>
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
-                    <div>
-                      <span className="font-bold text-sm text-bone">
-                        {job.role}
-                      </span>
-                      <span className="text-lime"> @ {job.company}</span>
-                    </div>
-                    <span className="font-mono text-xs text-bone-dim">
-                      {job.period} • {job.location}
+                <div key={job.company} className="space-y-1">
+                  <div className="flex justify-between items-baseline">
+                    <span className="font-semibold text-zinc-200">
+                      {job.role} <span className="text-zinc-400 font-normal">@ {job.company}</span>
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">
+                      {job.period}
                     </span>
                   </div>
-                  <ul className="mt-2 space-y-1.5 text-xs text-bone-dim">
+                  <ul className="space-y-1 text-xs text-zinc-400 pl-1">
                     {job.points.map((pt, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-lime mt-0.5">•</span>
-                        <span className="leading-relaxed">{pt}</span>
+                      <li key={i} className="flex items-start gap-1.5">
+                        <span className="text-zinc-400">•</span>
+                        <span>{pt}</span>
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {job.stack.map((s) => (
-                      <span
-                        key={s}
-                        className="rounded bg-white/5 px-2 py-0.5 font-mono text-[10px] text-bone-dim border border-white/10"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Projects */}
-          <div className="mt-6">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-lime border-b border-white/10 pb-1.5 mb-4">
-              Featured Engineering Projects
-            </h3>
-            <div className="space-y-6">
+          <div>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono border-b border-zinc-800 pb-1 mb-3">
+              Selected Projects
+            </h2>
+            <div className="space-y-3">
               {projects.map((proj) => (
-                <div key={proj.id}>
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between">
-                    <div className="flex items-center gap-2">
-                      <span className="font-bold text-sm text-bone">
-                        {proj.name}
-                      </span>
-                      <span className="font-mono text-xs text-bone-dim">
-                        — {proj.tag}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3 text-xs font-mono text-lime">
-                      {proj.live && (
-                        <a
-                          href={proj.live}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="hover:underline flex items-center gap-1"
-                        >
-                          Live Demo <ExternalLink className="h-3 w-3" />
-                        </a>
-                      )}
-                      {proj.repo && (
-                        <a
-                          href={proj.repo}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="hover:underline flex items-center gap-1 text-bone-dim hover:text-lime"
-                        >
-                          GitHub <ExternalLink className="h-3 w-3" />
-                        </a>
-                      )}
-                    </div>
+                <div key={proj.id} className="space-y-0.5">
+                  <div className="flex justify-between items-baseline">
+                    <span className="font-semibold text-zinc-200">
+                      {proj.name} <span className="text-zinc-400 font-normal">({proj.tag})</span>
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">
+                      {proj.stack.slice(0, 3).join(", ")}
+                    </span>
                   </div>
-                  <p className="mt-1.5 text-xs text-bone-dim leading-relaxed">
+                  <p className="text-xs text-zinc-400">
                     {proj.detail}
                   </p>
-                  <ul className="mt-2 space-y-1 text-xs text-bone-dim">
-                    {proj.highlights.map((h, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-lime mt-0.5">›</span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-2 flex flex-wrap gap-1.5">
-                    {proj.stack.map((s) => (
-                      <span
-                        key={s}
-                        className="rounded bg-white/5 px-2 py-0.5 font-mono text-[10px] text-bone-dim border border-white/10"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Honors & Certifications */}
-          <div className="mt-6 pb-4">
-            <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-lime border-b border-white/10 pb-1.5 mb-3">
-              Honors, Leadership & Certifications
-            </h3>
-            <div className="space-y-2 text-xs">
+          {/* Honors */}
+          <div>
+            <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono border-b border-zinc-800 pb-1 mb-2">
+              Honors & Certifications
+            </h2>
+            <div className="space-y-1.5 text-xs">
               {achievements.map((ach) => (
-                <div key={ach.title} className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
+                <div key={ach.title} className="flex justify-between items-baseline">
                   <div>
-                    <span className="font-bold text-bone">{ach.title}</span>
-                    <span className="text-bone-dim"> ({ach.org})</span>
-                    <p className="text-[11px] text-bone-dim/80">{ach.desc}</p>
+                    <span className="font-semibold text-zinc-300">{ach.title}</span>
+                    <span className="text-zinc-400"> — {ach.org}</span>
                   </div>
-                  <span className="font-mono text-[11px] font-semibold text-lime shrink-0">
+                  <span className="font-mono text-xs text-zinc-400 shrink-0">
                     {ach.highlight}
                   </span>
                 </div>

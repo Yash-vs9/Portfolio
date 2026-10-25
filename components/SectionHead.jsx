@@ -1,24 +1,14 @@
-import Reveal from "./Reveal";
-
-export default function SectionHead({ num, title, sub }) {
+export default function SectionHead({ title, sub }) {
   return (
-    <Reveal>
-      <div className="mb-12 flex items-end justify-between gap-6 border-b border-white/10 pb-5 lg:mb-20">
-        <div className="flex items-baseline gap-4">
-          <span className="font-mono text-sm text-lime">{num}</span>
-          <h2
-            style={{ fontFamily: "var(--font-bricolage)" }}
-            className="text-4xl font-bold tracking-[-0.02em] sm:text-6xl lg:text-7xl"
-          >
-            {title}
-          </h2>
-        </div>
-        {sub && (
-          <span className="hidden max-w-[22ch] text-right font-mono text-[11px] uppercase leading-relaxed tracking-[0.2em] text-bone-dim sm:block">
-            {sub}
-          </span>
-        )}
-      </div>
-    </Reveal>
+    <div className="flex items-center justify-between gap-4 border-b border-zinc-800 pb-3 mb-6">
+      <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono">
+        {title}
+      </h2>
+      {sub && (
+        <span className="text-[11px] text-zinc-400 font-mono hidden sm:inline">
+          {sub}
+        </span>
+      )}
+    </div>
   );
 }

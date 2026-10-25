@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     title: "Yash Vardhan Shukla — Full Stack & AI Systems Engineer",
     description:
-      "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures (LangGraph, FastMCP, Hybrid RAG).",
+      "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures.",
     url: "https://yash-vs9.github.io/Portfolio",
     siteName: "Yash Vardhan Shukla Portfolio",
     locale: "en_US",
@@ -40,7 +40,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0b0b0d",
+  themeColor: "#09090b",
   width: "device-width",
   initialScale: 1,
 };
@@ -76,12 +76,12 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
           rel="stylesheet"
         />
         <script
@@ -89,12 +89,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className="grain"
-        style={{
-          fontFamily: "var(--font-space), system-ui, sans-serif",
-        }}
-      >
+      <body className="bg-zinc-950 text-zinc-100 antialiased selection:bg-zinc-800 selection:text-white">
         {children}
       </body>
     </html>

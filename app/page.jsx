@@ -1,6 +1,4 @@
 "use client";
-import SmoothProvider from "@/components/SmoothProvider";
-import SceneMount from "@/components/SceneMount";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -13,11 +11,10 @@ import ResumeModal from "@/components/ResumeModal";
 
 export default function Home() {
   return (
-    <SmoothProvider>
-      <SceneMount />
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-zinc-800 selection:text-white">
       <Nav />
       <ResumeModal />
-      <main className="relative">
+      <main className="mx-auto max-w-4xl px-5 sm:px-8 pt-24 pb-16 space-y-16 sm:space-y-24">
         <Hero />
         <About />
         <Experience />
@@ -26,6 +23,6 @@ export default function Home() {
         <Achievements />
         <Footer />
       </main>
-    </SmoothProvider>
+    </div>
   );
 }
