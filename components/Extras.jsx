@@ -11,16 +11,16 @@ export default function Extras() {
         {extras.map((x, i) => (
           <div
             key={x.title}
-            className="p-4 rounded-lg border border-zinc-800 bg-zinc-900/30 flex flex-col justify-between space-y-2 hover:border-zinc-700 transition-colors"
+            className="p-4 rounded-lg border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/30 flex flex-col justify-between space-y-2 hover:border-zinc-300 dark:hover:border-zinc-700 transition-colors shadow-xs"
           >
             <div>
-              <div className="text-xs font-mono text-zinc-400 mb-1">
+              <div className="text-xs font-mono text-zinc-400 dark:text-zinc-500 mb-1">
                 0{i + 1}
               </div>
-              <h3 className="font-semibold text-sm text-zinc-100">
+              <h3 className="font-semibold text-sm text-zinc-900 dark:text-zinc-100">
                 {x.title}
               </h3>
-              <p className="text-xs text-zinc-400 leading-relaxed mt-1">
+              <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed mt-1">
                 {x.line}
               </p>
             </div>
