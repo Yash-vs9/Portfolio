@@ -22,7 +22,7 @@ export default function Experience() {
                 </span>
               </div>
               <div className="font-mono text-xs text-zinc-400">
-                {job.period} • {job.location}
+                {job.period}
               </div>
             </div>
 

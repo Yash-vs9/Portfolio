@@ -1,14 +1,11 @@
 "use client";
 import { useState } from "react";
-import { profile, heroStats } from "@/lib/data";
+import { profile } from "@/lib/data";
 import { openResumeModal } from "@/lib/modalStore";
 import {
   FileTextIcon,
   CopyIcon,
   CheckIcon,
-  MailIcon,
-  MapPinIcon,
-  GraduationCapIcon,
   ArrowUpRightIcon,
   GithubIcon,
   LinkedinIcon,
@@ -37,7 +34,7 @@ export default function Hero() {
           </h1>
           <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
             <span className="flex h-1.5 w-1.5 rounded-full bg-emerald-500" />
-            <span>Available for 2026 roles</span>
+            <span>Available</span>
           </div>
         </div>
 
@@ -45,24 +42,16 @@ export default function Hero() {
           {profile.role}
         </p>
 
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-zinc-400 font-mono pt-0.5">
-          <span className="flex items-center gap-1.5">
-            <GraduationCapIcon className="h-3.5 w-3.5 text-zinc-400" />
-            {profile.meta}
-          </span>
-          <span>•</span>
-          <span className="flex items-center gap-1.5">
-            <MapPinIcon className="h-3.5 w-3.5 text-zinc-400" />
-            {profile.location}
-          </span>
+        <div className="text-xs text-zinc-400 font-mono">
+          {profile.meta}
         </div>
       </div>
 
-      {/* Concise Bio */}
-      <div className="text-sm leading-relaxed text-zinc-300 max-w-2xl space-y-2">
-        <p>
-          I build resilient backend systems and autonomous AI agent architectures. Focused on the unglamorous parts of software engineering: infrastructure that survives restarts, reliable microservices with Java/Spring Boot and Python/FastAPI, and production-tested agentic workflows (LangGraph, FastMCP, and hybrid retrieval).
-        </p>
+      {/* Intro from original data */}
+      <div className="text-sm leading-relaxed text-zinc-300 max-w-2xl space-y-1">
+        {profile.intro.map((line) => (
+          <p key={line}>{line}</p>
+        ))}
       </div>
 
       {/* Quick Action Links Bar */}
@@ -72,7 +61,7 @@ export default function Hero() {
           className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-100 hover:bg-zinc-800 hover:border-zinc-600 transition-colors"
         >
           <FileTextIcon className="h-3.5 w-3.5 text-zinc-400" />
-          <span>View Resume</span>
+          <span>Resume</span>
         </button>
 
         <button
@@ -113,20 +102,6 @@ export default function Hero() {
           <span>LinkedIn</span>
           <ArrowUpRightIcon className="h-3 w-3 text-zinc-400" />
         </a>
-      </div>
-
-      {/* Key Metric Highlights Strip */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-zinc-800/80">
-        {heroStats.map((stat) => (
-          <div key={stat.label} className="p-2.5 rounded-lg border border-zinc-800/60 bg-zinc-900/30">
-            <div className="text-lg font-semibold text-zinc-100 font-mono">
-              {stat.value}
-            </div>
-            <div className="text-[11px] text-zinc-400 font-medium">
-              {stat.label}
-            </div>
-          </div>
-        ))}
       </div>
     </section>
   );

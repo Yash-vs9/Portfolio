@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useResumeModal } from "@/lib/modalStore";
-import { profile, experience, projects, skills, achievements } from "@/lib/data";
+import { profile, experience, projects, skills, extras } from "@/lib/data";
 import {
   PrinterIcon,
   CopyIcon,
@@ -65,8 +65,8 @@ ${projects
   )
   .join("\n\n")}
 
-HONORS & CERTIFICATIONS:
-${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("\n")}
+HONORS & RECOGNITION:
+${extras.map((x) => `• ${x.title}: ${x.line}`).join("\n")}
 `.trim();
 
   const handleCopyText = async () => {
@@ -271,21 +271,18 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
             </div>
           </div>
 
-          {/* Honors */}
+          {/* Honors & Extras */}
           <div>
             <h2 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 font-mono border-b border-zinc-800 pb-1 mb-2">
-              Honors & Certifications
+              Honors & Activities
             </h2>
             <div className="space-y-1.5 text-xs">
-              {achievements.map((ach) => (
-                <div key={ach.title} className="flex justify-between items-baseline">
+              {extras.map((x) => (
+                <div key={x.title} className="flex justify-between items-baseline">
                   <div>
-                    <span className="font-semibold text-zinc-300">{ach.title}</span>
-                    <span className="text-zinc-400"> ({ach.org})</span>
+                    <span className="font-semibold text-zinc-300">{x.title}: </span>
+                    <span className="text-zinc-400">{x.line}</span>
                   </div>
-                  <span className="font-mono text-xs text-zinc-400 shrink-0">
-                    {ach.highlight}
-                  </span>
                 </div>
               ))}
             </div>

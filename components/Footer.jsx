@@ -80,7 +80,7 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <span>{profile.name}</span>
           <span>•</span>
-          <span>{profile.education.school}</span>
+          <span>{profile.meta}</span>
         </div>
 
         <div className="flex items-center gap-4">

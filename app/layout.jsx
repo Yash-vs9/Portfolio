@@ -1,27 +1,26 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Yash Vardhan Shukla | Full Stack & AI Systems Engineer",
+  title: "Yash Vardhan Shukla | Full Stack & AI Engineer",
   description:
-    "Full Stack & AI Systems Engineer. Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures (LangGraph, FastMCP, Hybrid RAG).",
+    "Full Stack & AI Engineer. Java/Spring Boot, Python/FastAPI, Next.js, and AI agent systems (LangGraph, MCP).",
   keywords: [
     "Yash Vardhan Shukla",
     "Full Stack Engineer",
-    "AI Systems Engineer",
+    "AI Engineer",
     "Spring Boot",
     "FastAPI",
     "LangGraph",
-    "FastMCP",
-    "RAG",
-    "Software Engineer Portfolio",
+    "MCP",
+    "Next.js",
   ],
   authors: [{ name: "Yash Vardhan Shukla", url: "https://github.com/Yash-vs9" }],
   creator: "Yash Vardhan Shukla",
   metadataBase: new URL("https://yash-vs9.github.io/Portfolio"),
   openGraph: {
-    title: "Yash Vardhan Shukla | Full Stack & AI Systems Engineer",
+    title: "Yash Vardhan Shukla | Full Stack & AI Engineer",
     description:
-      "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures.",
+      "Java/Spring Boot, Python/FastAPI, Next.js, and AI agent systems.",
     url: "https://yash-vs9.github.io/Portfolio",
     siteName: "Yash Vardhan Shukla Portfolio",
     locale: "en_US",
@@ -29,9 +28,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yash Vardhan Shukla | Full Stack & AI Systems Engineer",
+    title: "Yash Vardhan Shukla | Full Stack & AI Engineer",
     description:
-      "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures.",
+      "Java/Spring Boot, Python/FastAPI, Next.js, and AI agent systems.",
   },
   robots: {
     index: true,
@@ -50,7 +49,7 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Yash Vardhan Shukla",
-    jobTitle: "Full Stack & AI Systems Engineer",
+    jobTitle: "Full Stack & AI Engineer",
     url: "https://github.com/Yash-vs9",
     sameAs: [
       "https://github.com/Yash-vs9",

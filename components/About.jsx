@@ -1,44 +1,45 @@
 "use client";
 import { about } from "@/lib/data";
 import SectionHead from "./SectionHead";
-import { ServerIcon, BotIcon, CloudIcon } from "@/components/Icons";
 
 export default function About() {
-  const pillarIcons = [
-    <ServerIcon key="0" className="h-4 w-4 text-zinc-300" />,
-    <BotIcon key="1" className="h-4 w-4 text-zinc-300" />,
-    <CloudIcon key="2" className="h-4 w-4 text-zinc-300" />,
-  ];
-
   return (
     <section id="about" className="space-y-6">
-      <SectionHead title="About" sub="Engineering background & pillars" />
+      <SectionHead title="About" sub="Background & focus" />
 
-      {/* Narrative paragraphs */}
+      {/* Lead */}
+      <p className="text-base sm:text-lg font-medium text-zinc-100 leading-snug">
+        {about.lead}
+      </p>
+
+      {/* Body paragraphs */}
       <div className="space-y-3 text-sm text-zinc-300 leading-relaxed">
         {about.body.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
       </div>
 
-      {/* 3 Core Pillars */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-        {about.pillars.map((pillar, i) => (
+      {/* Now indicator */}
+      <div className="pt-1">
+        <span className="inline-flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 font-mono text-xs text-zinc-300">
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+          <span>{about.now}</span>
+        </span>
+      </div>
+
+      {/* Original Stats Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+        {about.stats.map((s) => (
           <div
-            key={pillar.title}
-            className="p-4 rounded-lg border border-zinc-800 bg-zinc-900/40 hover:border-zinc-700 transition-colors"
+            key={s.v}
+            className="p-3 rounded-lg border border-zinc-800 bg-zinc-900/30"
           >
-            <div className="flex items-center gap-2 mb-2">
-              <div className="p-1 rounded bg-zinc-800 text-zinc-200">
-                {pillarIcons[i]}
-              </div>
-              <h3 className="text-xs font-semibold text-zinc-200">
-                {pillar.title}
-              </h3>
+            <div className="text-xl sm:text-2xl font-semibold text-zinc-100 font-mono">
+              {s.k}
             </div>
-            <p className="text-xs text-zinc-400 leading-relaxed">
-              {pillar.desc}
-            </p>
+            <div className="text-xs text-zinc-400 font-mono mt-0.5">
+              {s.v}
+            </div>
           </div>
         ))}
       </div>

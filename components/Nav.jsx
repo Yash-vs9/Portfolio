@@ -7,10 +7,9 @@ import { FileTextIcon, MailIcon, ArrowUpRightIcon, GithubIcon, LinkedinIcon } fr
 const links = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
-  { id: "achievements", label: "Honors" },
-  { id: "contact", label: "Contact" },
+  { id: "projects", label: "Work" },
+  { id: "skills", label: "Stack" },
+  { id: "extras", label: "More" },
 ];
 
 export default function Nav() {
