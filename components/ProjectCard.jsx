@@ -15,7 +15,7 @@ export default function ProjectCard({ project }) {
             {project.name}
           </h3>
           <span className="text-xs text-zinc-400 font-mono">
-            — {project.tag}
+            / {project.tag}
           </span>
         </div>
 

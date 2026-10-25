@@ -52,7 +52,7 @@ PROFESSIONAL EXPERIENCE:
 ${experience
   .map(
     (exp) =>
-      `• ${exp.company} — ${exp.role} (${exp.period})\n  ${exp.points.map((p) => `  - ${p}`).join("\n")}`
+      `• ${exp.company} (${exp.role}, ${exp.period})\n  ${exp.points.map((p) => `  - ${p}`).join("\n")}`
   )
   .join("\n\n")}
 
@@ -105,7 +105,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
           <div className="flex items-center gap-2">
             <FileText className="h-4 w-4 text-zinc-400" />
             <span className="text-xs font-semibold text-zinc-200">
-              Yash Vardhan Shukla — Resume
+              Yash Vardhan Shukla: Resume
             </span>
           </div>
 
@@ -194,7 +194,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
                 {profile.education.school}
               </span>
               <span className="font-mono text-xs text-zinc-400">
-                2022 – 2026
+                2022 to 2026
               </span>
             </div>
             <p className="text-xs text-zinc-400">
@@ -280,7 +280,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
                 <div key={ach.title} className="flex justify-between items-baseline">
                   <div>
                     <span className="font-semibold text-zinc-300">{ach.title}</span>
-                    <span className="text-zinc-400"> — {ach.org}</span>
+                    <span className="text-zinc-400"> ({ach.org})</span>
                   </div>
                   <span className="font-mono text-xs text-zinc-400 shrink-0">
                     {ach.highlight}

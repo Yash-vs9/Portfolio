@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Yash Vardhan Shukla — Full Stack & AI Systems Engineer",
+  title: "Yash Vardhan Shukla | Full Stack & AI Systems Engineer",
   description:
     "Full Stack & AI Systems Engineer. Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures (LangGraph, FastMCP, Hybrid RAG).",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata = {
   creator: "Yash Vardhan Shukla",
   metadataBase: new URL("https://yash-vs9.github.io/Portfolio"),
   openGraph: {
-    title: "Yash Vardhan Shukla — Full Stack & AI Systems Engineer",
+    title: "Yash Vardhan Shukla | Full Stack & AI Systems Engineer",
     description:
       "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures.",
     url: "https://yash-vs9.github.io/Portfolio",
@@ -29,7 +29,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yash Vardhan Shukla — Full Stack & AI Systems Engineer",
+    title: "Yash Vardhan Shukla | Full Stack & AI Systems Engineer",
     description:
       "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures.",
   },
