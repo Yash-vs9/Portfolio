@@ -3,15 +3,16 @@ import { useEffect, useState } from "react";
 import { useResumeModal } from "@/lib/modalStore";
 import { profile, experience, projects, skills, achievements } from "@/lib/data";
 import {
-  Printer,
-  Copy,
-  Check,
-  X,
-  Download,
-  FileText,
-  Mail,
-} from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+  PrinterIcon,
+  CopyIcon,
+  CheckIcon,
+  XIcon,
+  DownloadIcon,
+  FileTextIcon,
+  MailIcon,
+  GithubIcon,
+  LinkedinIcon,
+} from "@/components/Icons";
 
 export default function ResumeModal() {
   const { isOpen, close } = useResumeModal();
@@ -103,7 +104,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
         {/* toolbar */}
         <div className="flex items-center justify-between border-b border-zinc-800 bg-zinc-900/60 px-5 py-3">
           <div className="flex items-center gap-2">
-            <FileText className="h-4 w-4 text-zinc-400" />
+            <FileTextIcon className="h-4 w-4 text-zinc-400" />
             <span className="text-xs font-semibold text-zinc-200">
               Yash Vardhan Shukla: Resume
             </span>
@@ -115,7 +116,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
               className="flex items-center gap-1.5 rounded border border-zinc-700 bg-zinc-800 px-2.5 py-1 text-xs text-zinc-200 hover:bg-zinc-700 hover:text-white transition-colors"
               title="Print or Save as PDF"
             >
-              <Printer className="h-3.5 w-3.5" />
+              <PrinterIcon className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">Print / PDF</span>
             </button>
             <button
@@ -124,12 +125,12 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
             >
               {copied ? (
                 <>
-                  <Check className="h-3.5 w-3.5 text-emerald-400" />
+                  <CheckIcon className="h-3.5 w-3.5 text-emerald-400" />
                   <span className="text-emerald-400">Copied</span>
                 </>
               ) : (
                 <>
-                  <Copy className="h-3.5 w-3.5" />
+                  <CopyIcon className="h-3.5 w-3.5" />
                   <span className="hidden sm:inline">Copy Text</span>
                 </>
               )}
@@ -138,7 +139,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
               onClick={handleDownloadTxt}
               className="flex items-center gap-1.5 rounded border border-zinc-800 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-300 hover:border-zinc-700 hover:text-white transition-colors"
             >
-              <Download className="h-3.5 w-3.5" />
+              <DownloadIcon className="h-3.5 w-3.5" />
               <span className="hidden sm:inline">TXT</span>
             </button>
             <button
@@ -146,7 +147,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
               className="ml-2 flex h-7 w-7 items-center justify-center rounded border border-zinc-800 bg-zinc-900 text-zinc-400 hover:border-zinc-700 hover:text-zinc-100 transition-colors"
               aria-label="Close"
             >
-              <X className="h-3.5 w-3.5" />
+              <XIcon className="h-3.5 w-3.5" />
             </button>
           </div>
         </div>
@@ -163,7 +164,7 @@ ${achievements.map((ach) => `• ${ach.title} (${ach.org}): ${ach.desc}`).join("
             </p>
             <div className="mt-2 flex flex-wrap gap-4 text-xs font-mono text-zinc-400">
               <span className="flex items-center gap-1">
-                <Mail className="h-3 w-3" /> {profile.links.rawEmail}
+                <MailIcon className="h-3 w-3" /> {profile.links.rawEmail}
               </span>
               <a
                 href={profile.links.github}

@@ -2,8 +2,14 @@
 import { useState } from "react";
 import { profile } from "@/lib/data";
 import { openResumeModal } from "@/lib/modalStore";
-import { Mail, Copy, Check, FileText, ArrowUpRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import {
+  MailIcon,
+  CopyIcon,
+  CheckIcon,
+  FileTextIcon,
+  GithubIcon,
+  LinkedinIcon,
+} from "@/components/Icons";
 import SectionHead from "./SectionHead";
 
 export default function Footer() {
@@ -38,7 +44,7 @@ export default function Footer() {
             href={profile.links.email}
             className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-xs text-zinc-100 hover:bg-zinc-800 hover:border-zinc-600 transition-colors"
           >
-            <Mail className="h-3.5 w-3.5 text-zinc-400" />
+            <MailIcon className="h-3.5 w-3.5 text-zinc-400" />
             <span>Send Email</span>
           </a>
 
@@ -48,12 +54,12 @@ export default function Footer() {
           >
             {copied ? (
               <>
-                <Check className="h-3.5 w-3.5 text-emerald-400" />
+                <CheckIcon className="h-3.5 w-3.5 text-emerald-400" />
                 <span className="text-emerald-400">Copied</span>
               </>
             ) : (
               <>
-                <Copy className="h-3.5 w-3.5 text-zinc-400" />
+                <CopyIcon className="h-3.5 w-3.5 text-zinc-400" />
                 <span>Copy</span>
               </>
             )}
@@ -63,7 +69,7 @@ export default function Footer() {
             onClick={() => openResumeModal()}
             className="inline-flex items-center gap-1.5 rounded-md border border-zinc-800 bg-zinc-900/60 px-3 py-1.5 text-xs text-zinc-300 hover:border-zinc-700 hover:text-white transition-colors"
           >
-            <FileText className="h-3.5 w-3.5 text-zinc-400" />
+            <FileTextIcon className="h-3.5 w-3.5 text-zinc-400" />
             <span>Resume</span>
           </button>
         </div>

@@ -1,7 +1,11 @@
 "use client";
 import { useState } from "react";
-import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
-import { GithubIcon } from "@/components/Icons";
+import {
+  ExternalLinkIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  GithubIcon,
+} from "@/components/Icons";
 
 export default function ProjectCard({ project }) {
   const [expanded, setExpanded] = useState(false);
@@ -28,7 +32,7 @@ export default function ProjectCard({ project }) {
               className="inline-flex items-center gap-1 rounded border border-zinc-700 bg-zinc-800/80 px-2.5 py-1 text-zinc-200 hover:text-white hover:bg-zinc-700 transition-colors"
             >
               <span>Live Demo</span>
-              <ExternalLink className="h-3 w-3" />
+              <ExternalLinkIcon className="h-3 w-3" />
             </a>
           )}
           {project.repo && (
@@ -59,9 +63,9 @@ export default function ProjectCard({ project }) {
           >
             <span>{expanded ? "Hide architecture details" : "Architecture & technical specs"}</span>
             {expanded ? (
-              <ChevronUp className="h-3 w-3" />
+              <ChevronUpIcon className="h-3 w-3" />
             ) : (
-              <ChevronDown className="h-3 w-3" />
+              <ChevronDownIcon className="h-3 w-3" />
             )}
           </button>
 

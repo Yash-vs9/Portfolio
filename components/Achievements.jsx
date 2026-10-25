@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { achievements, whyHireMe } from "@/lib/data";
 import SectionHead from "./SectionHead";
-import { Trophy, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDownIcon, ChevronUpIcon } from "@/components/Icons";
 
 export default function Achievements() {
   const [openFaq, setOpenFaq] = useState(null);
@@ -56,9 +56,9 @@ export default function Achievements() {
                 >
                   <span>{item.q}</span>
                   {isOpen ? (
-                    <ChevronUp className="h-3.5 w-3.5 text-zinc-400 shrink-0" />
+                    <ChevronUpIcon className="h-3.5 w-3.5 text-zinc-400 shrink-0" />
                   ) : (
-                    <ChevronDown className="h-3.5 w-3.5 text-zinc-400 shrink-0" />
+                    <ChevronDownIcon className="h-3.5 w-3.5 text-zinc-400 shrink-0" />
                   )}
                 </button>
                 {isOpen && (

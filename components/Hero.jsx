@@ -3,15 +3,16 @@ import { useState } from "react";
 import { profile, heroStats } from "@/lib/data";
 import { openResumeModal } from "@/lib/modalStore";
 import {
-  FileText,
-  Copy,
-  Check,
-  Mail,
-  MapPin,
-  GraduationCap,
-  ArrowUpRight,
-} from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+  FileTextIcon,
+  CopyIcon,
+  CheckIcon,
+  MailIcon,
+  MapPinIcon,
+  GraduationCapIcon,
+  ArrowUpRightIcon,
+  GithubIcon,
+  LinkedinIcon,
+} from "@/components/Icons";
 
 export default function Hero() {
   const [copied, setCopied] = useState(false);
@@ -46,12 +47,12 @@ export default function Hero() {
 
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-zinc-400 font-mono pt-0.5">
           <span className="flex items-center gap-1.5">
-            <GraduationCap className="h-3.5 w-3.5 text-zinc-400" />
+            <GraduationCapIcon className="h-3.5 w-3.5 text-zinc-400" />
             {profile.meta}
           </span>
           <span>•</span>
           <span className="flex items-center gap-1.5">
-            <MapPin className="h-3.5 w-3.5 text-zinc-400" />
+            <MapPinIcon className="h-3.5 w-3.5 text-zinc-400" />
             {profile.location}
           </span>
         </div>
@@ -70,7 +71,7 @@ export default function Hero() {
           onClick={() => openResumeModal()}
           className="inline-flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-3 py-1.5 text-xs font-medium text-zinc-100 hover:bg-zinc-800 hover:border-zinc-600 transition-colors"
         >
-          <FileText className="h-3.5 w-3.5 text-zinc-400" />
+          <FileTextIcon className="h-3.5 w-3.5 text-zinc-400" />
           <span>View Resume</span>
         </button>
 
@@ -80,12 +81,12 @@ export default function Hero() {
         >
           {copied ? (
             <>
-              <Check className="h-3.5 w-3.5 text-emerald-400" />
+              <CheckIcon className="h-3.5 w-3.5 text-emerald-400" />
               <span className="text-emerald-400">Copied!</span>
             </>
           ) : (
             <>
-              <Copy className="h-3.5 w-3.5 text-zinc-400" />
+              <CopyIcon className="h-3.5 w-3.5 text-zinc-400" />
               <span>Copy Email</span>
             </>
           )}
@@ -99,7 +100,7 @@ export default function Hero() {
         >
           <GithubIcon className="h-3.5 w-3.5 text-zinc-400" />
           <span>GitHub</span>
-          <ArrowUpRight className="h-3 w-3 text-zinc-400" />
+          <ArrowUpRightIcon className="h-3 w-3 text-zinc-400" />
         </a>
 
         <a
@@ -110,7 +111,7 @@ export default function Hero() {
         >
           <LinkedinIcon className="h-3.5 w-3.5 text-zinc-400" />
           <span>LinkedIn</span>
-          <ArrowUpRight className="h-3 w-3 text-zinc-400" />
+          <ArrowUpRightIcon className="h-3 w-3 text-zinc-400" />
         </a>
       </div>
 

@@ -1,13 +1,13 @@
 "use client";
 import { about } from "@/lib/data";
 import SectionHead from "./SectionHead";
-import { Server, Bot, Cloud } from "lucide-react";
+import { ServerIcon, BotIcon, CloudIcon } from "@/components/Icons";
 
 export default function About() {
   const pillarIcons = [
-    <Server key="0" className="h-4 w-4 text-zinc-300" />,
-    <Bot key="1" className="h-4 w-4 text-zinc-300" />,
-    <Cloud key="2" className="h-4 w-4 text-zinc-300" />,
+    <ServerIcon key="0" className="h-4 w-4 text-zinc-300" />,
+    <BotIcon key="1" className="h-4 w-4 text-zinc-300" />,
+    <CloudIcon key="2" className="h-4 w-4 text-zinc-300" />,
   ];
 
   return (

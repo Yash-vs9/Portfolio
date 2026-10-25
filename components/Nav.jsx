@@ -2,8 +2,7 @@
 import { useEffect, useState } from "react";
 import { profile } from "@/lib/data";
 import { openResumeModal } from "@/lib/modalStore";
-import { FileText, Mail, ArrowUpRight } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/Icons";
+import { FileTextIcon, MailIcon, ArrowUpRightIcon, GithubIcon, LinkedinIcon } from "@/components/Icons";
 
 const links = [
   { id: "about", label: "About" },
@@ -69,7 +68,7 @@ export default function Nav() {
               onClick={() => openResumeModal()}
               className="flex items-center gap-1.5 rounded-md border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-xs text-zinc-200 hover:bg-zinc-800 hover:text-white hover:border-zinc-600 transition-all"
             >
-              <FileText className="h-3.5 w-3.5 text-zinc-400" />
+              <FileTextIcon className="h-3.5 w-3.5 text-zinc-400" />
               <span>Resume</span>
             </button>
 
