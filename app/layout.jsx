@@ -1,41 +1,41 @@
 import "./globals.css";
-import {
-  Bricolage_Grotesque,
-  Space_Grotesk,
-  JetBrains_Mono,
-} from "next/font/google";
-
-const bricolage = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-bricolage",
-  display: "swap",
-});
-
-const space = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-space",
-  display: "swap",
-});
-
-const jetbrains = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains",
-  display: "swap",
-});
 
 export const metadata = {
-  title: "Yash Vardhan Shukla — Full Stack & AI Engineer",
+  title: "Yash Vardhan Shukla — Full Stack & AI Systems Engineer",
   description:
-    "Full Stack & AI Engineer. Java/Spring Boot, Python/FastAPI, Next.js, and AI agent systems (LangGraph, MCP).",
-  metadataBase: new URL("https://yash.vercel.app"),
+    "Full Stack & AI Systems Engineer. Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures (LangGraph, FastMCP, Hybrid RAG).",
+  keywords: [
+    "Yash Vardhan Shukla",
+    "Full Stack Engineer",
+    "AI Systems Engineer",
+    "Spring Boot",
+    "FastAPI",
+    "LangGraph",
+    "FastMCP",
+    "RAG",
+    "Software Engineer Portfolio",
+  ],
+  authors: [{ name: "Yash Vardhan Shukla", url: "https://github.com/Yash-vs9" }],
+  creator: "Yash Vardhan Shukla",
+  metadataBase: new URL("https://yash-vs9.github.io/Portfolio"),
   openGraph: {
-    title: "Yash Vardhan Shukla — Full Stack & AI Engineer",
+    title: "Yash Vardhan Shukla — Full Stack & AI Systems Engineer",
     description:
-      "Java/Spring Boot, Python/FastAPI, Next.js, and AI agent systems.",
+      "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures (LangGraph, FastMCP, Hybrid RAG).",
+    url: "https://yash-vs9.github.io/Portfolio",
+    siteName: "Yash Vardhan Shukla Portfolio",
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Yash Vardhan Shukla — Full Stack & AI Systems Engineer",
+    description:
+      "Java/Spring Boot, Python/FastAPI, Next.js, and autonomous AI agent architectures.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -46,10 +46,51 @@ export const viewport = {
 };
 
 export default function RootLayout({ children }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Yash Vardhan Shukla",
+    jobTitle: "Full Stack & AI Systems Engineer",
+    url: "https://github.com/Yash-vs9",
+    sameAs: [
+      "https://github.com/Yash-vs9",
+      "https://www.linkedin.com/in/yash-vardhan-shukla-b0a71331b/",
+    ],
+    alumniOf: {
+      "@type": "EducationalOrganization",
+      name: "Zakir Husain College of Engineering and Technology, AMU",
+    },
+    knowsAbout: [
+      "Java",
+      "Spring Boot",
+      "Python",
+      "FastAPI",
+      "LangGraph",
+      "FastMCP",
+      "RAG",
+      "AWS",
+      "Docker",
+      "React",
+      "Next.js",
+    ],
+  };
+
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
-        className={`${bricolage.variable} ${space.variable} ${jetbrains.variable} grain`}
+        className="grain"
         style={{
           fontFamily: "var(--font-space), system-ui, sans-serif",
         }}
